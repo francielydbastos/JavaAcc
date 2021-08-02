@@ -10,6 +10,7 @@ public class Time {
 	private String fundacao;
 	private ArrayList<Jogador2> plantel;
 	private ArrayList<Jogador2> relacionados;
+	private ArrayList<Jogador2> titulares;
 
 	public Time() {
 
@@ -63,9 +64,20 @@ public class Time {
 		this.relacionados = relacionados;
 	}
 
+	public ArrayList<Jogador2> getTitulares() {
+		return titulares;
+	}
+
+	public void setTitulares(ArrayList<Jogador2> titulares) {
+		this.titulares = titulares;
+	}
+
 	//Método que seleciona 11 titulares e 7 reservas, conforme sua qualidade
 	//Ainda será atualizado para levar em consideração as posições
 	public void relacionarJogadores() {
+
+		ArrayList<Jogador2> titulares = new ArrayList<Jogador2>();
+		this.titulares = titulares;
 
 		ArrayList<Jogador2> relacionados = new ArrayList<Jogador2>();
 		this.relacionados = relacionados;
@@ -81,11 +93,15 @@ public class Time {
 
 			relacionados.add(plantel.get(i));
 
-			System.out.println(relacionados.get(i).getNumero() + " " + relacionados.get(i).getNome() + " (Posição: " + relacionados.get(i).getPosicao()
-					+ " | Qualidade: " + relacionados.get(i).getQualidade() + ")");
+//			System.out.println(relacionados.get(i).getNumero() + " " + relacionados.get(i).getNome() + " (Posição: " + relacionados.get(i).getPosicao()
+//					+ " | Qualidade: " + relacionados.get(i).getQualidade() + ")");
 		}
 
-		
-	}
+		//Armazenando titulares em outro array
+		for (int i = 0; i < 11; i++) {
 
+			titulares.add(relacionados.get(i));
+		}
+	}
 }
+
